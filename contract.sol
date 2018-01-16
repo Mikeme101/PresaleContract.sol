@@ -41,7 +41,7 @@ contract PreSale is Ownable {
         EggsPurchased(msg.sender, msg.value, 1);
     }
     
-    function redeemEgg(address targetUser) public returns(uint256) {
+    function redeemEgg(address targetUser) public onlyOwner returns(uint256) {
         require(paused == false);
         require(eggs[targetUser] > 0);
 
